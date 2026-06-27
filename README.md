@@ -18,7 +18,7 @@ EduNotes AI is an AI-powered web application that transforms YouTube lecture vid
 
 
 
-# 📌 Problem Statement
+## 📌 Problem Statement
 
 Students spend a significant amount of time watching lengthy educational videos and manually preparing notes. This process is time-consuming, makes revision difficult, and provides no quick way to evaluate understanding after completing a lecture.
 
@@ -98,9 +98,9 @@ This allows students to focus on learning rather than spending hours creating no
 
 
 
-# 🏗 System Architecture
+## 🏗️ System Architecture
 
-text
+```text
                     User
                       │
                       ▼
@@ -127,8 +127,7 @@ YouTube Transcript API        Google Gemini API
                       ▼
                PDF Download
 
-
-# 🔄 Workflow
+## 🔄 Workflow
 
 ```text
 YouTube URL
@@ -144,7 +143,8 @@ AI Processing
 Notes Quiz Flashcards Transcript
       │
       ▼
- Dashboard & PDF Export
+Dashboard & PDF Export
+
 
 
 # 📂 Project Structure
@@ -266,7 +266,7 @@ Displays generated study materials in an organized dashboard and stores previous
 
 
 
-# 🙏 Acknowledgements
+#  Acknowledgements
 
 We sincerely thank **Alpha Connects** for organizing the **24-Hour Online Hackathon 2026** and providing us with the opportunity to build an innovative AI-powered educational platform.
 

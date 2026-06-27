@@ -122,65 +122,99 @@ function Dashboard() {
 
   const downloadPdf = () => {
   const doc = new jsPDF();
-
   let y = 20;
 
-  doc.setFontSize(22);
-  doc.text("LectureLens AI", 20, y);
+  const addPageIfNeeded = (space = 10) => {
+    if (y + space > 270) {
+      doc.addPage();
+      y = 20;
+    }
+  };
 
+  // Title
+  doc.setFontSize(20);
+  doc.text("LectureLens AI - Study Pack", 20, y);
   y += 12;
 
-  doc.setFontSize(16);
-  doc.text(title || "Lecture", 20, y);
-
-  y += 12;
-
+  // Lecture Title
   doc.setFontSize(14);
-  doc.text("YouTube URL:", 20, y);
+  doc.text(`Title: ${title || "Lecture"}`, 20, y);
+  y += 10;
 
-  y += 8;
+  // YouTube URL
+  doc.setFontSize(12);
+  doc.text("YouTube URL:", 20, y);
+  y += 7;
 
   const urlLines = doc.splitTextToSize(youtubeUrl || "", 170);
   doc.text(urlLines, 20, y);
-
   y += urlLines.length * 6 + 10;
 
+  // Summary
   doc.setFontSize(14);
   doc.text("Summary", 20, y);
-
   y += 8;
 
   const summaryLines = doc.splitTextToSize(summary || "", 170);
   doc.text(summaryLines, 20, y);
-
   y += summaryLines.length * 6 + 10;
 
+  // Notes
   doc.setFontSize(14);
   doc.text("Notes", 20, y);
-
   y += 8;
 
   formattedNotes.forEach((note, index) => {
-    const lines = doc.splitTextToSize(
-      `${index + 1}. ${note.body}`,
-      170
-    );
+    addPageIfNeeded();
+
+    const text = `${index + 1}. ${note.body}`;
+    const lines = doc.splitTextToSize(text, 170);
 
     doc.text(lines, 20, y);
     y += lines.length * 6 + 4;
-
-    if (y > 270) {
-      doc.addPage();
-      y = 20;
-    }
   });
 
-  y += 5;
+  // Quiz
+  y += 10;
+  addPageIfNeeded();
 
-  doc.save("LectureLens_AI_Notes.pdf");
+  doc.setFontSize(14);
+  doc.text("Quiz Questions", 20, y);
+  y += 8;
+
+  quiz.forEach((q, index) => {
+    addPageIfNeeded();
+
+    const text = `${index + 1}. ${q.question}`;
+    const lines = doc.splitTextToSize(text, 170);
+
+    doc.text(lines, 20, y);
+    y += lines.length * 6 + 4;
+  });
+
+  // Flashcards
+  y += 10;
+  addPageIfNeeded();
+
+  doc.setFontSize(14);
+  doc.text("Flashcards", 20, y);
+  y += 8;
+
+  flashcards.forEach((card, index) => {
+    addPageIfNeeded();
+
+    const text = `Q: ${card.front} | A: ${card.back}`;
+    const lines = doc.splitTextToSize(text, 170);
+
+    doc.text(lines, 20, y);
+    y += lines.length * 6 + 4;
+  });
+
+  doc.save("LectureLens_AI_Study_Pack.pdf");
 
   showToast("PDF downloaded successfully!");
 };
+
 
   const toggleCard = (index) => {
     setFlippedCards((current) =>

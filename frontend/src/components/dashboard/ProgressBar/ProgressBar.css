@@ -1,0 +1,33 @@
+.progress-card {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 800;
+}
+
+.progress-track {
+  height: 12px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: inherit;
+  animation: progressFill 850ms ease both;
+}
+
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+}

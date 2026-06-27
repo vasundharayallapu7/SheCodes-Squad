@@ -1,0 +1,9 @@
+.notes-card {
+  padding: 1rem;
+}
+
+.notes-card p {
+  margin-top: 0.45rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}

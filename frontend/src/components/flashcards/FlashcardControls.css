@@ -1,0 +1,18 @@
+.flashcard-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flashcard-controls p {
+  color: var(--color-muted);
+}
+
+@media (max-width: 620px) {
+  .flashcard-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

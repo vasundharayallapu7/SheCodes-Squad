@@ -1,0 +1,11 @@
+const healthCheck = (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Backend is running successfully 🚀",
+        timestamp: new Date()
+    });
+};
+
+module.exports = {
+    healthCheck
+};

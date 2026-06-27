@@ -1,0 +1,42 @@
+.dashboard-page {
+  padding: 1rem 0 3rem;
+}
+
+.dashboard-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.tab-panel {
+  min-height: 260px;
+}
+
+.summary-panel {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.2rem;
+}
+
+.summary-panel p {
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+
+.summary-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.summary-points span {
+  padding: 0.55rem 0.75rem;
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.quiz-panel {
+  display: grid;
+  gap: 1rem;
+}

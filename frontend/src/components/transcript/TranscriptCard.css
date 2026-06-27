@@ -1,0 +1,40 @@
+.transcript-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.transcript-card {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.timestamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 42px;
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.transcript-card p {
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 560px) {
+  .transcript-card {
+    grid-template-columns: 1fr;
+  }
+
+  .timestamp {
+    width: fit-content;
+    padding: 0 0.8rem;
+  }
+}

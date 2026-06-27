@@ -1,0 +1,21 @@
+.video-input {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  padding: 0.85rem;
+}
+
+.video-input .generate-button {
+  width: auto;
+  align-self: end;
+}
+
+@media (max-width: 760px) {
+  .video-input {
+    grid-template-columns: 1fr;
+  }
+
+  .video-input .generate-button {
+    width: 100%;
+  }
+}
